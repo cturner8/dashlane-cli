@@ -13,6 +13,7 @@ import {
     runInject,
     runExec,
     runBackup,
+    runList,
 } from '../command-handlers';
 
 export const rootCommands = (params: { program: Command }) => {
@@ -23,6 +24,16 @@ export const rootCommands = (params: { program: Command }) => {
         .alias('s')
         .description('Manually synchronize the local vault with Dashlane')
         .action(runSync);
+
+    program
+        .command('list')
+        .description('List secrets from the local vault')
+        .option('-v, --verbose', 'Output detailed item properties')
+        .argument(
+            '[filters...]',
+            'Filter items based on any parameter using <param>=<value>; if <param> is not specified in the filter, will default to url and title'
+        )
+        .action(runList);
 
     program
         .command('read')

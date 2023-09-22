@@ -5,7 +5,8 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "bin": {
-        "dcli": "dist/index.js"
+        "dcli": "dist/index.js",
+        "dl": "dist/index.js"
     },
     "pkg": {
         "assets": [
